@@ -65,6 +65,7 @@ function Paddle(position, dimensions, side) {
     if (this.side !== 'left' && (e.key === 'p' || e.key === 'l')) this.direction = 0;
   }.bind(this));
 }
+
 // ################# GAME
 function Game() {
 	this.canvas = document.querySelector('#cvs');
