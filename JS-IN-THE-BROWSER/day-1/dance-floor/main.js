@@ -3,12 +3,6 @@
   cols = 5;
   count = 0;
 
-  class grid {
-    constructor() {
-      
-    }
-  }
-
   function randomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -33,4 +27,4 @@
     const randomCell = randomInt(25);
     const randomColor = `rgb(${randomInt(255)}, ${randomInt(255)}, ${randomInt(255)})`;
     $colorfullCell = $(`#${randomCell}`).css('background-color', `${randomColor}`);
-  }, 1);
+  }, 50);
