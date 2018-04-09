@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  border: solid 1px black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  display: flex;
+  border: solid 1px black;
+  width: 10vh;
+  padding-bottom: 10vh;
+}
+
+.active {
+  background-color: black; 
+}

@@ -1,7 +1,7 @@
 
-  rows = 5;
-  cols = 5;
-  count = 0;
+  const rows = 5;
+  const cols = 5;
+  let count = 0;
 
   function randomInt(max) {
     return Math.floor(Math.random() * max);
@@ -27,4 +27,4 @@
     const randomCell = randomInt(25);
     const randomColor = `rgb(${randomInt(255)}, ${randomInt(255)}, ${randomInt(255)})`;
     $colorfullCell = $(`#${randomCell}`).css('background-color', `${randomColor}`);
-  }, 50);
+  }, 5);
