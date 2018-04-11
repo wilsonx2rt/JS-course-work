@@ -1,0 +1,15 @@
+.todo-item-wrapper {
+  display: flex;
+}
+
+.fa {
+  margin-right: 10px;
+}
+
+.header-fa {
+  cursor: pointer;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}

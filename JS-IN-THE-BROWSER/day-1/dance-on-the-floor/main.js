@@ -99,4 +99,4 @@ Grid.prototype.updateCurrentCell = function(event){
   this.moveLeftRight(event);
 };
 
-const danceFloor = new Grid(6, 5);
+const danceFloor = new Grid(8, 8);

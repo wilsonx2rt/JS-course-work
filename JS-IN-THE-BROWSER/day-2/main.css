@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.star-wars {
+  width: 100vw;
+  border: salmon solid 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  align-self: center;
+}
+
+.body-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
+  margin-left: 20px;
+}

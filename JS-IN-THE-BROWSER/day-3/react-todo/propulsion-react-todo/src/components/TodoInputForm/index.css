@@ -1,0 +1,24 @@
+.todo-form-wrapper {
+  border: solid .5em coral;
+  padding: 20px;
+  max-width: 20vw;
+  margin: 0 auto;
+}
+
+.todo-input {
+  margin: 0 1em;
+  background: transparent;
+  border: 1px solid coral;
+  font-weight: bolder;
+  
+}
+
+.todo-submit {
+  background: transparent;
+  border: 1px solid coral;
+}
+
+.todo-submit:focus, 
+.todo-input:focus {
+  outline: 0;
+}
