@@ -2,10 +2,11 @@
   text-align: center;
   min-height: 100vh;
   min-width: 100vw;
-  background-image: url(./glenn-carstens-peters-190592-unsplash.jpg);
-  background-repeat:no-repeat;
-  background-position: center center;
-  background-size: 100%;
+  background: url(./glenn-carstens-peters-190592-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +18,7 @@
   padding: 50px;
   background-color: rgba(211,211,211, .6);
   border: solid .5em coral;
-  max-height: 85vh;
+  max-height: 80vh;
 }
 
 .App-logo {

@@ -1,5 +1,5 @@
 .header-wrapper {
-  height: 5em;
+  height: 1.5em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,6 @@
 }
 
 .header-titel {
-  border: solid .5em coral;
   padding: .5em;
   width: 40vw;
 }
@@ -29,5 +28,5 @@
 }
 
 .header-h1 {
-  font-size: 2em;
+  font-size: 2.5em;
 }

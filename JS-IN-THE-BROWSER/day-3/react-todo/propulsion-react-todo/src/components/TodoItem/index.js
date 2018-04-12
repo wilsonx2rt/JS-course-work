@@ -4,26 +4,10 @@ import 'font-awesome/css/font-awesome.min.css';
 
 
 class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      classStrike: '',
-    }
-  }
+
 
   checkTodoItem = () => {
-    let classStrike = this.state.classStrike;
-    if(this.state.classStrike === 'strike-through') {
-      classStrike ='';
-      this.setState({
-        classStrike,
-      });
-    } else {
-      classStrike ='strike-through';
-      this.setState({
-        classStrike,
-      });
-    }
+    this.props.toggleTodoStatus(this.props.id);
   }
 
   render() {
@@ -43,7 +27,7 @@ class TodoItem extends React.Component {
             }
         }>
         </span>
-        <span className={this.state.classStrike}>
+        <span className={this.props.strike}>
           <li className="todo-list-item"> {this.props.todo}</li>
         </span>
       </div>

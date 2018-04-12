@@ -6,13 +6,21 @@ class TodoInputForm extends React.Component {
     super(props);
 
     this.state = {
-      input: '',
+      input: {
+        todo: '',
+        value: '',
+        strike: 'no-strike',
+      },
     }
   }
 
   handleInputChange = (e) => {
     let input = this.state.input;
-    input = e.target.value;
+    input = {
+      todo: e.target.value,
+      status: 'pending',
+      strike: 'no-strike',
+    }
     this.setState({
       input,
     });
@@ -20,7 +28,11 @@ class TodoInputForm extends React.Component {
 
   resetForm = () => {
     let input = this.state.input;
-    input = '';
+    input = {
+      todo: '',
+      status: 'pending',
+      strike: 'no-strike',
+    }
     this.setState({
       input,
     })
@@ -41,7 +53,7 @@ class TodoInputForm extends React.Component {
             <input 
               className="todo-input" 
               type="text" name="name" 
-              value={this.state.input}
+              value={this.state.input.todo}
               onChange={
                 (e) => {this.handleInputChange(e)}
               }

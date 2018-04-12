@@ -12,11 +12,15 @@ class TodoItemList extends React.Component {
       <div className="todo-item-list-wraper">
       <ul>
         {this.props.todos.map((todo, index) => {
+          console.log(todo);
           return <TodoItem
             key={ index }
-            index={ index } 
-            todo={ todo }
+            id={ index } 
+            todo={ todo.todo }
+            status={ todo.status }
+            strike={ todo.strike }
             removeTodoItems={this.props.removeTodoItems}
+            toggleTodoStatus ={ this.props.toggleTodoStatus }
           />
           }
         )}

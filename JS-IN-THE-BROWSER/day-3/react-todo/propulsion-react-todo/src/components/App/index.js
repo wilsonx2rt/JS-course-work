@@ -4,8 +4,8 @@ import Header from '../Header';
 import TodoItemForm from '../TodoInputForm';
 import TodoItemList from '../TodoItemList';
 import Filter from '../Filter';
+import Quote from '../Quote';
 import Footer from '../Footer';
-
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +13,47 @@ class App extends Component {
 
     this.state = {
       todoItems: [],
+      filter: 'all',
+    }
+  }
+
+  toggleTodoStatus = (id) => {
+    let todoItems = [...this.state.todoItems];
+    let status = todoItems[id].status;
+    let strike = todoItems[id].strike;
+    status === 'pending' ? status = 'completed' : status = 'pending';
+    strike === 'no-strike' ? strike = 'strike' : strike = 'no-strike';
+    todoItems.map((item) => {
+      todoItems.indexOf(item) === id ? item.status = status : null;
+      todoItems.indexOf(item) === id ? item.strike = strike : null;
+    });
+    this.setState({
+      todoItems,
+    });
+  }
+
+  handleFilterChange = (e) => {
+    let targetValue = e.target.value;
+    let filter = this.state.filter;
+    if (targetValue === 'all') {
+      filter = 'all';
+    } else if (targetValue === 'pending') {
+      filter = 'pending';
+    } else if (targetValue === 'completed'){
+      filter = 'completed';
+    }
+    this.setState({
+      filter,
+    });
+  }
+
+  filteredTodos = () => {
+    if (this.state.filter === 'all') {
+      return this.state.todoItems;
+    } else if ( this.state.filter === 'pending') {
+      return this.state.todoItems.filter((todo) => todo.status === 'pending')
+    } else if (this.state.filter === 'completed') {
+      return this.state.todoItems.filter((todo) => todo.status === 'completed')
     }
   }
 
@@ -40,14 +81,18 @@ class App extends Component {
           title="Propulsion's Todo-App"
         />
         <TodoItemForm 
-          todos={ this.state.todoItems }
-          addTodoItems={this.addTodoItems}
+          addTodoItems={ this.addTodoItems }
         />
-        <Filter />
+        <Filter
+          handleFilterChange = { this.handleFilterChange }
+        />
         <TodoItemList
-          todos={ this.state.todoItems }
-          removeTodoItems={this.removeTodoItems}
+          todos={ this.filteredTodos() }
+          strike={ this.strike }
+          removeTodoItems={ this.removeTodoItems }
+          toggleTodoStatus = { this.toggleTodoStatus }
         />
+        <Quote />
         <Footer />
         </div>
       </div>
