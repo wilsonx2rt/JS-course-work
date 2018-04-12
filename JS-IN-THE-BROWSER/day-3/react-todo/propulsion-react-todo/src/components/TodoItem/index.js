@@ -29,24 +29,22 @@ class TodoItem extends React.Component {
   render() {
     return (
       <div className="todo-item-wrapper">
-        <span className="fa fa-check-circle header-fa" onClick={
-          () => {
-            this.checkTodoItem()
-          }
+        <span className="fa fa-check-circle header-fa" 
+          onClick={
+            () => {
+              this.checkTodoItem()
+            }
         }>
         </span>
-        <span className="fa fa-times-circle header-fa" onClick={
-          () => {
-            this.props.removeTodoItems(this.props.index);
-          }
+        <span className="fa fa-times-circle header-fa" 
+          onClick={
+            () => {
+              this.props.removeTodoItems(this.props.index);
+            }
         }>
         </span>
         <span className={this.state.classStrike}>
-          <li 
-            className="todo-list-item"
-          > 
-            {this.props.todo}
-          </li>
+          <li className="todo-list-item"> {this.props.todo}</li>
         </span>
       </div>
     )

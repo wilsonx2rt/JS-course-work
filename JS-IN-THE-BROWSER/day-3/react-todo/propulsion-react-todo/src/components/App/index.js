@@ -24,9 +24,9 @@ class App extends Component {
     });
   }
 
-  removeTodoItems = (key) => {
+  removeTodoItems = (index) => {
     let todos = this.state.todoItems;
-    todos.pop(key);
+    todos.pop(index);
     this.setState({
       todos,
     });

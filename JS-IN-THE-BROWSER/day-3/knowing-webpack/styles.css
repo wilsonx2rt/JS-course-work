@@ -1,0 +1,13 @@
+div {
+  width: 50vw;
+  height: 50vh;
+  border: 5px solid mistyrose;
+  margin: 0 auto;
+}
+body {
+  background: url('./antonio-molinari-455670-unsplash.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

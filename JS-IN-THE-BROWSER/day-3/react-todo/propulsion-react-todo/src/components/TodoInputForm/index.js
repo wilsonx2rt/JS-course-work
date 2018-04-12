@@ -47,7 +47,11 @@ class TodoInputForm extends React.Component {
               }
             />
           </label>
-          <input className="todo-submit" type="submit" value="Submit" />
+          <input 
+            className="todo-submit" 
+            type="submit" 
+            value="Submit" 
+          />
         </form>
       </div>
     )
