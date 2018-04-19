@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: url(./glenn-carstens-peters-190592-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.well {
+  max-width: 60vw;
+  align-self: center;
+  padding: 50px;
+  background-color: rgba(211,211,211, .6);
+  border: solid .5em coral;
+  max-height: 80vh;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -38,6 +37,7 @@ const AppBarStyle = {
         color: 'white',
         diplay: 'flex',
         position: 'fixed',
+        width: '100vw',
 }
 
 export default TopBar;

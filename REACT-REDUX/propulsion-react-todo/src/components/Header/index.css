@@ -1,0 +1,32 @@
+.header-wrapper {
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+  margin-bottom: 15px;
+}
+
+.header-titel {
+  padding: .5em;
+  width: 40vw;
+}
+
+.header-logo {
+  width: 100px;
+}
+
+.made-with {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-coffee {
+  margin-left: 25px;
+  color: #7ed8f7;
+}
+
+.header-h1 {
+  font-size: 2.5em;
+}

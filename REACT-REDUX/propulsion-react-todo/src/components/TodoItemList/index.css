@@ -1,0 +1,17 @@
+.todo-item-list-wraper {
+  min-width: 50vw;
+  height: 30vh;
+  border: solid coral .5em;
+  margin: 25px auto;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

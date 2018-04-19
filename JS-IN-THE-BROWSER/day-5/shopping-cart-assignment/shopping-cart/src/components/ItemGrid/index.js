@@ -58,7 +58,7 @@ class ItemGrid extends React.Component {
 
 // Styles
 const gridWapperStyles = {
-  width: '50vw',
+  width: '65vw',
   margin: '12vh 3vw',
 }
 
@@ -73,7 +73,7 @@ const insideTheCard = {
 const productCard = {
   padding: '.5em',
   margin: '.5em',
-  width: '15em'
+  width: '10em'
 }
 
 const productCardContent = {

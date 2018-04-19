@@ -19,7 +19,7 @@ class ShoppingCart extends React.Component {
 // Styles
 
 const shoppingCartWrapper = {
-  width: '40vw',
+  width: '25vw',
   position: 'fixed',
   right: '3vw',
   top: '12vh',
