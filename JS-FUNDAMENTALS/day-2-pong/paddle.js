@@ -6,7 +6,7 @@ function Paddle(position, dimensions, side) {
   this.speed = 7;
   this.side = side;
 
-  this.render = (context) => {
+  this.render = context => {
     context.beginPath();
     context.rect(this.posX, this.posY, this.dimX, this.dimY);
     context.fillStyle = '#55b936';
@@ -23,7 +23,7 @@ function Paddle(position, dimensions, side) {
     }
   };
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (this.side === 'left') {
       // console.log('hey');
       if (e.key === 'q') this.direction = -this.speed;
@@ -34,8 +34,10 @@ function Paddle(position, dimensions, side) {
     }
   }); // in not using arrow function context must be bound on callback of event listener .bind(this)
 
-  document.addEventListener('keyup', (e) => {
-    if (this.side === 'left' && (e.key === 'q' || e.key === 'a')) this.direction = 0;
-    if (this.side !== 'left' && (e.key === 'p' || e.key === 'l')) this.direction = 0;
+  document.addEventListener('keyup', e => {
+    if (this.side === 'left' && (e.key === 'q' || e.key === 'a'))
+      this.direction = 0;
+    if (this.side !== 'left' && (e.key === 'p' || e.key === 'l'))
+      this.direction = 0;
   });
 }

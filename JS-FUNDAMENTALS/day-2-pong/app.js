@@ -4,7 +4,11 @@ function Game() {
   this.ctx = this.canvas.getContext('2d');
   this.ball = new Ball(10, [10, 10]);
   this.lPaddle = new Paddle([5, this.canvas.height / 2.5], [10, 100], 'left');
-  this.rPaddle = new Paddle([585, this.canvas.height / 2.5], [10, 100], 'right');
+  this.rPaddle = new Paddle(
+    [585, this.canvas.height / 2.5],
+    [10, 100],
+    'right'
+  );
 
   this.detectCollisions = () => {
     const radius = this.ball.radius;
@@ -17,12 +21,13 @@ function Game() {
     const rPaddleY = this.rPaddle.posY;
 
     if (
-      ballX - radius === lPaddleX &&
-      ballY >= lPaddleY &&
-      ballY <= lPaddleY + paddleDimY ||
-      ballX + radius === rPaddleX &&
-      ballY >= rPaddleY &&
-      ballY <= rPaddleY + paddleDimY) {
+      (ballX - radius === lPaddleX &&
+        ballY >= lPaddleY &&
+        ballY <= lPaddleY + paddleDimY) ||
+      (ballX + radius === rPaddleX &&
+        ballY >= rPaddleY &&
+        ballY <= rPaddleY + paddleDimY)
+    ) {
       this.ball.velX = -this.ball.velX;
     }
     /*
@@ -31,7 +36,7 @@ function Game() {
     */
   };
 
-  this.renderDashedLine = (context) => {
+  this.renderDashedLine = context => {
     context.setLineDash([10, 5]);
     context.lineWidth = 10;
     context.beginPath();

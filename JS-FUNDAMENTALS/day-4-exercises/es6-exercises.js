@@ -22,11 +22,11 @@ var iObj = {
     console.log('Thy name is: ' + this.name);
   }
 
-//   printName();
+  printName();
   
-  var boundPrint = iBind(printName, iObj);
+  let boundPrint = iBind(printName, iObj);
   
-  // boundPrint();
+  boundPrint();
 
   /*
 Improve myBind
@@ -51,26 +51,26 @@ function myBind(fn, ctx) {
     }
 };
 
-var obj = {
+let obj = {
     name: 'Markov'
   }
   
   function greetingsTo(name) {
     console.log('Hello ' + name + ', my name is: ' + this.name);
   }
-  // greetingsTo('Fante');
-  var boundGreeting = myBind(greetingsTo, obj);
-  // boundGreeting('Fante');
+  greetingsTo('Fante');
+  let boundGreeting = myBind(greetingsTo, obj);
+  boundGreeting('Fante');
   
   function greetingsToAll(name, name2) {
     console.log('Hello ' + name + ' and ' + name2 + ', my name is: ' + this.name);
   }
-  // greetingsToAll('Fante', 'Hornby');
-  var boundToAll = myBind(greetingsToAll, obj);
-  // boundToAll('Fante', 'Hornby');
+  greetingsToAll('Fante', 'Hornby');
+  let boundToAll = myBind(greetingsToAll, obj);
+  boundToAll('Fante', 'Hornby');
   
-  var boundAndFirst = myBind(greetingsToAll, obj, 'Fante');
-  // boundAndFirst('Hornby');
+  let boundAndFirst = myBind(greetingsToAll, obj, 'Fante');
+  boundAndFirst('Hornby');
 
 /*
 Currying Calculator
@@ -85,7 +85,7 @@ Then it returns the sum of all 5 params.
 function curryCalc(a,b,c,d,e) {
   return a+b+c+d+e;
 }
-// console.log(curryCalc.length);
+console.log(curryCalc.length);
 
 function createCurryCalc(fn){
   let args = [];
@@ -108,16 +108,16 @@ function createCurryCalc(fn){
 
 
 
-var curryCalc = createCurryCalc(curryCalc);
-var partial = curryCalc(2, 3, 4);
-var partial2 = partial(1, 3);
-// console.log(partial2);
+let curryCalc = createCurryCalc(curryCalc);
+let partial = curryCalc(2, 3, 4);
+let partial2 = partial(1, 3);
+console.log(partial2);
 
 
-// var curriedCalc2 = createCurryCalc();
-// var partial2 = curryCalc2(2);
-// partial2 = partial2(4, 5)
-// console.log(partial2(1, 3));
+var curriedCalc2 = createCurryCalc();
+var partial2 = curryCalc2(2);
+partial2 = partial2(4, 5)
+console.log(partial2(1, 3));
 /*
 myEach
 Define a myEach function that simulates the forEach method on Array.

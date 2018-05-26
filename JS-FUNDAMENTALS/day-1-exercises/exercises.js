@@ -1,10 +1,10 @@
-var DataType = require('data-type')
+var DataType = require('data-type');
 // isString
 
 // Create a function that returns true when the parameter passed is a string and false otherwise.
 
 function isString(string) {
-    return DataType.type(string) === 'string'
+  return DataType.type(string) === 'string';
 }
 
 isString('hello'); // => true
@@ -19,7 +19,7 @@ isString({ a: 2 }); // => false
 // Create a function that returns true when the parameter passed is an array and false otherwise.
 
 function isArray(array) {
-	return DataType.type(array) === 'array'
+  return DataType.type(array) === 'array';
 }
 
 isArray('hello'); // => false
@@ -36,21 +36,21 @@ isArray({ a: 2 }); // => false
 // For example, whether they are all a String or a number.
 
 function areSameType(array) {
-	var result = true;
-	array.forEach(element => {
-		if (DataType.type(array[0]) === DataType.type(element)) {
-			result = true;
-		} else {
-			result = false;
-		}
-	});
-	return result;
+  var result = true;
+  array.forEach(element => {
+    if (DataType.type(array[0]) === DataType.type(element)) {
+      result = true;
+    } else {
+      result = false;
+    }
+  });
+  return result;
 }
 
 areSameType(['hello', 'world', 'long sentence']); // => true
-areSameType([1, 2, 9, 10]) // => true
-areSameType([['hello'], 'hello', ['bye']]) // => false
-areSameType([['hello'], [1, 2, 3], [{ a: 2 }]]) // => true
+areSameType([1, 2, 9, 10]); // => true
+areSameType([['hello'], 'hello', ['bye']]); // => false
+areSameType([['hello'], [1, 2, 3], [{ a: 2 }]]); // => true
 
 // Sort and remove duplicated characters
 
@@ -70,19 +70,19 @@ areSameType([['hello'], [1, 2, 3], [{ a: 2 }]]) // => true
 // longest(a, a) // => 'abcdefghijklmnopqrstuvwxyz'
 
 function longest(a, b) {
-	var string = a + b;
-	newString = [];
-	for (let i = 0; i < string.length; i++) {
-		if(newString.indexOf(string[i]) === -1){
-			newString.push(string[i]);
-		}
-	}
-	return newString.sort().join('');
+  var string = a + b;
+  var newString = [];
+  for (let i = 0; i < string.length; i++) {
+    if (newString.indexOf(string[i]) === -1) {
+      newString.push(string[i]);
+    }
+  }
+  return newString.sort().join('');
 }
 
-a = 'aaa'
-b = 'aaa'
-longest(a, b) // => 'a'
+var a = 'aaa';
+var b = 'aaa';
+longest(a, b); // => 'a'
 
 // Convert number to reversed array of digits
 
@@ -91,14 +91,16 @@ longest(a, b) // => 'a'
 // const convert = number => String(number).split('').reverse().map(element => Number(element));
 
 function convert(number) {
-	array = String(number).split('').reverse();
-	return array.map(function(num) {
-		return Number(num)
-	});
+  var array = String(number)
+    .split('')
+    .reverse();
+  return array.map(function(num) {
+    return Number(num);
+  });
 }
 
 convert(429563); // => [ 3, 6, 5, 9, 2, 4 ]
-convert(324) // => [4, 3, 2]
+convert(324); // => [4, 3, 2]
 
 // Count repetitions
 
@@ -119,18 +121,28 @@ convert(324) // => [4, 3, 2]
 // }
 
 function repetitions(arrayOfStrings) {
-	count = {};
-	arrayOfStrings.forEach(function(element) {
-		if (element in count) {
-			count[element] += 1;
-		} else {
-			count[element] =1;
-		}
-	}); 
-	return count;
+  var count = {};
+  arrayOfStrings.forEach(function(element) {
+    if (element in count) {
+      count[element] += 1;
+    } else {
+      count[element] = 1;
+    }
+  });
+  return count;
 }
 
-repetitions(['kerouac', 'fante', 'fante', 'buk', 'hemingway', 'hornby', 'kerouac', 'buk', 'fante']);
+repetitions([
+  'kerouac',
+  'fante',
+  'fante',
+  'buk',
+  'hemingway',
+  'hornby',
+  'kerouac',
+  'buk',
+  'fante'
+]);
 
 // Cat and Mouse
 
@@ -139,19 +151,19 @@ repetitions(['kerouac', 'fante', 'fante', 'buk', 'hemingway', 'hornby', 'kerouac
 // You need to find out if the cat can catch the mouse from it's current position. The cat can jump three characters. So:
 
 function isCaught(string) {
-	string = string.toLowerCase();
-	index1 = string.indexOf('c');
-	index2 = string.indexOf('m');
-	if (index1 === -1 || index2 === -1) {
-		return 'bad input'
-	} else {
-	return index2-index1 <= 3;
-	}
+  string = string.toLowerCase();
+  var index1 = string.indexOf('c');
+  var index2 = string.indexOf('m');
+  if (index1 === -1 || index2 === -1) {
+    return 'bad input';
+  } else {
+    return index2 - index1 <= 3;
+  }
 }
 
-isCaught('C.....m') // => false
-isCaught('C..m') // => true
-isCaught('..C..m') // => true
+isCaught('C.....m'); // => false
+isCaught('C..m'); // => true
+isCaught('..C..m'); // => true
 
 // Split the bill
 
@@ -164,17 +176,17 @@ isCaught('..C..m') // => true
 // Negative number means they should receive money.
 
 var group = {
-	Amy: 20,
-	Bill: 15,
-	Chris: 10
-}
+  Amy: 20,
+  Bill: 15,
+  Chris: 10
+};
 
 function splitTheBill(group) {
-	names = Object.keys(group);
-	names.forEach(function(element) {
-		group[element] -= 15;
-		group[element] *= -1;
-	});
+  var names = Object.keys(group);
+  names.forEach(function(element) {
+    group[element] -= 15;
+    group[element] *= -1;
+  });
 }
 
 splitTheBill(group); // => { Amy: -5, Bill: 0, Chris: 5 }
@@ -190,15 +202,15 @@ splitTheBill(group); // => { Amy: -5, Bill: 0, Chris: 5 }
 // You can try first with a loop and then try to implement the recursive approach.
 
 function exp(b, n) {
-	if (DataType.type(b) !== 'number' || DataType.type(n) !== 'number'){
-		return 'inputs must be numbers';
-	} else if (n === 0) {
-		return 1;
-	} else if (n === 1){
-		return b;
-	} else {
-		return b * Math.pow(b, n - 1);
-	}
+  if (DataType.type(b) !== 'number' || DataType.type(n) !== 'number') {
+    return 'inputs must be numbers';
+  } else if (n === 0) {
+    return 1;
+  } else if (n === 1) {
+    return b;
+  } else {
+    return b * Math.pow(b, n - 1);
+  }
 }
 
 exp(5, 3); // => 125
@@ -215,11 +227,11 @@ exp(6, 0); // => 1
 // Write a function that expects an integer greater than 0 and returns the factorial of that number.
 
 function factorial(n) {
-	if (n === 0) {
-		return 1;
-	} else {
-		return n * factorial(n - 1);
-	}
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
 }
 
 factorial(5); // => 120
@@ -236,16 +248,15 @@ factorial(0); // => 1
 // For example:
 
 function fibs(n) {
-	var results = [];
-	if (n < 2){
-		return 1;
-	}else{
-		return fibs(n-2) + fibs(n-1);
-	}
+  if (n < 2) {
+    return 1;
+  } else {
+    return fibs(n - 2) + fibs(n - 1);
+  }
 }
 
 // console.log(fibs(10));
- // => [0, 1, 1]
+// => [0, 1, 1]
 fibs(7); // => [0, 1, 1, 2, 3, 5, 8]
 fibs(1); // => [0]
 // Write an recursive approach for this problem.
@@ -255,20 +266,20 @@ fibs(1); // => [0]
 // Write a function that expects an array of integers and returns an array of pairs with the indexes of two numbers that sum 0.
 
 function zeroSum(array) {
-	result = [];
-	for (let i = 0; i < array.length -1; i++) {
-		for (let j = i + 1; j < array.length; j++) {
-			if (array[i] + array[j] === 0) {
-				result.push([array.indexOf(array[i]), array.indexOf(array[j])])
-			}
-		}
-	}
-	return result;
+  var result = [];
+  for (let i = 0; i < array.length - 1; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] + array[j] === 0) {
+        result.push([array.indexOf(array[i]), array.indexOf(array[j])]);
+      }
+    }
+  }
+  return result;
 }
 
 zeroSum([1, 5, 0, -5, 3, -1]); // => [[0, 5], [1, 3]]
-zeroSum([1, -1]) // => [[0, 1]]
-zeroSum([0, 4, 3, 5]) // => []
+zeroSum([1, -1]); // => [[0, 1]]
+zeroSum([0, 4, 3, 5]); // => []
 // Do not repeat the pair again in the solution.
 
 // isAnagram
@@ -276,7 +287,18 @@ zeroSum([0, 4, 3, 5]) // => []
 // Write a function that takes two words as an argument and returns true if they are anagrams (contain the exact same letters) and false otherwise.
 
 function isAnagram(s1, s2) {
-	return s1.split('').sort().join('').toLowerCase() === s2.split('').sort().join('').toLowerCase();
+  return (
+    s1
+      .split('')
+      .sort()
+      .join('')
+      .toLowerCase() ===
+    s2
+      .split('')
+      .sort()
+      .join('')
+      .toLowerCase()
+  );
 }
 
 isAnagram('hello', 'ollhe'); // => true
@@ -284,16 +306,16 @@ isAnagram('world', 'ordly'); // => false
 isAnagram('fante', 'tenaff'); // => false
 
 module.exports = {
-    isString: isString,
-		isArray: isArray,
-		areSameType: areSameType,
-		longest: longest,
-		convert: convert,
-		repetitions: repetitions,
-		isCaught: isCaught,
-		splitTheBill: splitTheBill,
-		exp: exp,
-		fibs: fibs,
-		zeroSum: zeroSum,
-		isAnagram: isAnagram,
-}
+  isString: isString,
+  isArray: isArray,
+  areSameType: areSameType,
+  longest: longest,
+  convert: convert,
+  repetitions: repetitions,
+  isCaught: isCaught,
+  splitTheBill: splitTheBill,
+  exp: exp,
+  fibs: fibs,
+  zeroSum: zeroSum,
+  isAnagram: isAnagram
+};

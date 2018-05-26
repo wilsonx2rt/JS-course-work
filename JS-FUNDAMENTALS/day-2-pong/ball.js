@@ -4,7 +4,7 @@ function Ball(radius, position) {
   [this.posX, this.posY] = [position[0], position[1]];
   this.velX = 5;
   this.velY = 5;
-  this.render = (context) => {
+  this.render = context => {
     context.beginPath();
     context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI, false);
     context.fillStyle = '#55b936';
