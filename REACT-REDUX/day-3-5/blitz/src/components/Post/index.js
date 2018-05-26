@@ -25,7 +25,7 @@ class Post extends Component {
 
 const cardStyle = {
   width: '500px',
-  margin: '0 auto',
+  margin: '1em auto',
 }
 
 export default Post;

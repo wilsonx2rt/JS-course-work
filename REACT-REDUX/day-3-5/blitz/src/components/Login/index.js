@@ -1,64 +1,97 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // REDUX
-import { connect } from 'react-redux';
-import { fetchTokensAction } from '../../store/actions/fetchUserAction';
+import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
+import { fetchTokensAction } from "../../store/actions/fetchUserAction";
+// MATERIAL UI
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
 
 class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      username: '',
-      password: ''
-    }
+      username: "",
+      password: ""
+    };
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
+    // this.props.dispatch(fetchTokensAction(this.state))
     this.props.fetchTokensAction(this.state)
-  }
+      .then(() => {
+        this.props.history.push('/feed');
+      })
+  };
 
   render() {
     return (
       <div>
-        <form onSubmit={ this.handleSubmit }>
-          <label htmlFor="email">Username:</label>
-          <input 
-            value={ this.state.email }
-            type="text"
-            name="username"
-            id="email-input"
-            onChange={ this.handleChange }
-          />
-          
-          <label htmlFor="password">Password:</label>
-          <input 
-            vlaue={ this.state.password }
-            type="password"
-            name="password"
-            id="password-input"
-            onChange={ this.handleChange }
-          />
-          
-          <input
-            type="submit"
-            value="Login"
-          />
-        
-        </form>
+        <Card style={CardStyle}>
+          <CardTitle title="Welcome" />
+          <form onSubmit={this.handleSubmit}>
+            <div>
+              <TextField
+                hintText="Username"
+                name="username"
+                onChange={this.handleChange}
+              />
+            </div>
+            <br />
+            <div>
+              <TextField
+                hintText="Password"
+                name="password"
+                type="password"
+                onChange={this.handleChange}
+              />
+            </div>
+            <br />
+            <div>
+              <RaisedButton label="Login" onClick={this.handleSubmit} style={ btnStyle } />
+              <RaisedButton label="Register" onClick={this.handleSubmit} style={ btnStyle } />
+            </div>
+          </form>
+        </Card>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
-  state
-})
+// STYLES
+const CardStyle = {
+  width: "40vw",
+  // height: "25vh",
+  display: "flex",
+  flexDirection: "column",
+  margin: "15vh auto",
+  justifyContent: "center",
+  alignItems: "center"
+};
 
-export default connect(mapStateToProps, { fetchTokensAction })(Login);
+const btnStyle = {
+  margin: '0 .2em 1em .2em',
+}
+
+const mapStateToProps = state => ({
+  state
+});
+
+export default withRouter(connect(mapStateToProps, { fetchTokensAction })(Login));

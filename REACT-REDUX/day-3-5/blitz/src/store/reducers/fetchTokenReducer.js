@@ -16,8 +16,6 @@ const fetchTokensReducer = (state = initialState, action) => {
       access: action.payload.access,
       refesh: action.payload.refresh
     };
-    console.log(tokens.access);
-    console.log(tokens.refesh);
     newState.tokens = tokens;
     return newState;
   } else {

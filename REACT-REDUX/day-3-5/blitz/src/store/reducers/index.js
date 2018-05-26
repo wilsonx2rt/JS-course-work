@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import fetchTokensReducer from './fetchUserReducer';
+import fetchTokensReducer from './fetchTokenReducer';
 import fetchFeedReducer from './fetchFeedReducer';
 
 export default combineReducers({
