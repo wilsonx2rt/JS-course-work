@@ -10,7 +10,6 @@ body {
 
 .star-wars {
   width: 100vw;
-  border: salmon solid 1px;
   display: flex;
   flex-direction: column;
 }
